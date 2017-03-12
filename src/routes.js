@@ -31,14 +31,14 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     }
   })
 
-  .state('detail', {
-    url: '/detail/{detailId}',
-    templateUrl: 'src/menuapp/templates/main-detail.template.html',
-    controller: 'DetailController as detail',
+  .state('items', {
+    url: '/items/{itemId}',
+    templateUrl: 'src/menuapp/templates/main-items.template.html',
+    controller: 'ItemListController as itemList',
     resolve: {
       items: ['$stateParams', 'MenuDataService',
             function ($stateParams, MenuDataService) {
-              return MenuDataService.getItemsForCategory($stateParams.detailId);
+              return MenuDataService.getItemsForCategory($stateParams.itemId);
             }]
     }
   });
